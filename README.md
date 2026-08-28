@@ -2,7 +2,7 @@
 
 Public website for **GROVIX VENTURES PRIVATE LIMITED** — the holding company behind Lead Foundry (performance marketing) and AiHive (AI & business automation).
 
-Live site: https://neurak-tech.github.io/grovix-connect/
+Live site: https://grovix.co.in/
 
 ## Company
 

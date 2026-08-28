@@ -1,7 +1,5 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const pagesBase = process.env.GITHUB_PAGES === "true" ? "/grovix-connect/" : "/";
-
 export default defineConfig({
   nitro: false,
   tanstackStart: {
@@ -14,6 +12,7 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
-    base: pagesBase,
+    // Custom domain (grovix.co.in) is served from the site root, not /grovix-connect/.
+    base: "/",
   },
 });
