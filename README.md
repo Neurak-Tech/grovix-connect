@@ -1,14 +1,30 @@
-# Welcome to your Lovable project
+# Grovix Connect
+
+Pull off this  in one shot,
+
+Address
+
+GROVIX VENTURES PRIVATE LIMITED
+
+32, Chowringhee Road, Park Street,
+
+Kolkata, West Bengal – 700071, India.
+
+Email
+
+Info@grovix.co.in
+
+Privacy policy and Terms & Conditions page is a must, you can frame content
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8404332c-194f-438a-a19a-c40fe1c37b57).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +36,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
