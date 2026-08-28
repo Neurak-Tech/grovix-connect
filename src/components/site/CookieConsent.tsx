@@ -24,11 +24,16 @@ export function CookieConsent() {
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card/95 px-4 py-4 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-muted-foreground">
-          We use cookies and similar technologies to improve your experience and measure our marketing. Read our{" "}
+          We use cookies and similar technologies to improve your experience and measure our marketing.
+          See our{" "}
           <Link to="/privacy" className="text-gold underline underline-offset-2">
             Privacy Policy
           </Link>{" "}
-          to learn more.
+          and{" "}
+          <Link to="/terms" className="text-gold underline underline-offset-2">
+            Terms &amp; Conditions
+          </Link>
+          .
         </p>
         <div className="flex shrink-0 gap-2">
           <Button variant="outline" size="sm" onClick={() => decide("rejected")}>

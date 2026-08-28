@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { submitLead } from "@/lib/leads.functions";
+import { SITE } from "@/lib/site";
 
 // Shared lead capture form used on Home, Lead Foundry, AiHive and Contact.
 // All submissions go to the lead_submissions table via submitLead().
@@ -35,24 +37,38 @@ export function LeadForm({
     const form = e.currentTarget;
     const fd = new FormData(form);
     setPending(true);
+    const payload = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      company: String(fd.get("company") ?? ""),
+      message: String(fd.get("message") ?? ""),
+      interested_brand: brand,
+      source_page: sourcePage,
+      website: String(fd.get("website") ?? ""),
+    };
+
     try {
-      await submitLead({
-        data: {
-          name: String(fd.get("name") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          company: String(fd.get("company") ?? ""),
-          message: String(fd.get("message") ?? ""),
-          interested_brand: brand,
-          source_page: sourcePage,
-          website: String(fd.get("website") ?? ""),
-        },
-      });
+      await submitLead({ data: payload });
       toast.success("Thank you! Our team will reach out to you shortly.");
       form.reset();
       setBrand(defaultBrand ?? "");
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } catch {
+      const subject = encodeURIComponent(`Website enquiry — ${payload.name}`);
+      const body = encodeURIComponent(
+        [
+          `Name: ${payload.name}`,
+          `Email: ${payload.email}`,
+          `Phone: ${payload.phone || "—"}`,
+          `Company: ${payload.company || "—"}`,
+          `Interest: ${payload.interested_brand || "—"}`,
+          `Page: ${payload.source_page}`,
+          "",
+          payload.message || "",
+        ].join("\n"),
+      );
+      window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
+      toast.success("Opening your email client to send this enquiry.");
     } finally {
       setPending(false);
     }
@@ -125,7 +141,15 @@ export function LeadForm({
         {submitLabel}
       </Button>
       <p className="text-xs text-muted-foreground">
-        By submitting, you consent to us contacting you as described in our Privacy Policy.
+        By submitting, you agree to our{" "}
+        <Link to="/terms" className="text-gold hover:underline">
+          Terms &amp; Conditions
+        </Link>{" "}
+        and consent to be contacted as described in our{" "}
+        <Link to="/privacy" className="text-gold hover:underline">
+          Privacy Policy
+        </Link>
+        .
       </p>
     </form>
   );

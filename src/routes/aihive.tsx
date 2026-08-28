@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Bot, Database, KanbanSquare, Languages, Plug, Workflow } from "lucide-react";
+import { Bot, Cpu, Database, KanbanSquare, Languages, Plug, Workflow } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { LeadForm } from "@/components/site/LeadForm";
 
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/aihive")({
 
 const PILLARS = [
   {
-    icon: CpuIcon,
+    icon: Cpu,
     title: "AI Business OS",
     body: "A single operating layer for your business — leads, conversations, follow-ups and tasks in one place.",
   },
@@ -57,8 +57,6 @@ const PILLARS = [
     body: "Owners and teams see the same live picture — who owns which lead, and what happens next.",
   },
 ];
-
-import { Cpu as CpuIcon } from "lucide-react";
 
 const STEPS = [
   { step: "01", title: "Connect your channels", body: "Link WhatsApp, ad platforms, website forms and more in minutes." },

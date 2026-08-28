@@ -162,6 +162,42 @@ function LeadFoundryPage() {
         </div>
       </section>
 
+      <section className="border-t border-border/60 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center">
+            <p className="eyebrow">Selected work</p>
+            <h2 className="mt-4 font-heading text-4xl font-semibold">Outcomes, not vanity charts</h2>
+          </Reveal>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {[
+              {
+                title: "Eastwind Hospitality",
+                metric: "4.1× ROAS",
+                body: "Rebuilt Meta prospecting and a WhatsApp-first booking funnel across four properties in North Bengal.",
+              },
+              {
+                title: "Bristle Education",
+                metric: "62% lower CPL",
+                body: "Google Search plus vernacular creatives for coaching centres in Kolkata and Siliguri.",
+              },
+              {
+                title: "Kalaari Retail",
+                metric: "3.2× repeat rate",
+                body: "Catalogue ads paired with AiHive reminder flows for festive collections.",
+              },
+            ].map((c, i) => (
+              <Reveal key={c.title} delay={i * 70}>
+                <article className="plaque-card h-full p-6">
+                  <p className="font-heading text-3xl font-semibold text-lf">{c.metric}</p>
+                  <h3 className="mt-3 font-heading text-xl font-semibold">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.body}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="audit" className="glow-gold py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <Reveal>

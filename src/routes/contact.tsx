@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { LeadForm } from "@/components/site/LeadForm";
 import { SITE } from "@/lib/site";
@@ -72,12 +72,28 @@ function ContactPage() {
               <div className="plaque-card p-6">
                 <Phone className="h-6 w-6 text-gold" />
                 <h2 className="mt-3 font-heading text-xl font-semibold">Phone / WhatsApp</h2>
-                {/* Placeholder number — update SITE.phoneDisplay & whatsappNumber in src/lib/site.ts */}
-                <p className="mt-2 text-sm text-muted-foreground">{SITE.phoneDisplay}</p>
+                <a
+                  href={`tel:+${SITE.whatsappNumber}`}
+                  className="mt-2 block text-sm text-muted-foreground transition-colors hover:text-gold"
+                >
+                  {SITE.phoneDisplay}
+                </a>
               </div>
-              {/* Map placeholder — replace with an embedded Google Map before launch. */}
-              <div className="flex h-48 items-center justify-center rounded-xl border border-dashed border-border text-sm text-muted-foreground">
-                Map embed placeholder — {SITE.address.line1}, Kolkata
+              <div className="plaque-card p-6">
+                <Clock className="h-6 w-6 text-gold" />
+                <h2 className="mt-3 font-heading text-xl font-semibold">Studio hours</h2>
+                <p className="mt-2 text-sm text-muted-foreground">{SITE.hours}</p>
+                <p className="mt-1 text-xs text-muted-foreground">Closed on Sundays and public holidays.</p>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-border">
+                <iframe
+                  title={`Map of ${SITE.legalName}, ${SITE.address.line1}, Kolkata`}
+                  src={SITE.mapEmbedUrl}
+                  className="h-56 w-full grayscale-[30%] contrast-125"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
           </Reveal>
@@ -89,6 +105,38 @@ function ContactPage() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="border-t border-border/60 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <Reveal className="text-center">
+            <p className="eyebrow">FAQ</p>
+            <h2 className="mt-4 font-heading text-4xl font-semibold">Before you write in</h2>
+          </Reveal>
+          <dl className="mt-10 space-y-6">
+            {[
+              {
+                q: "How quickly will someone reply?",
+                a: "Enquiries sent on a working day usually receive a first response within one business day. WhatsApp messages to the studio number are monitored during studio hours.",
+              },
+              {
+                q: "Can we start with only one brand?",
+                a: "Yes. Many clients begin with a Lead Foundry audit or an AiHive demo, then add the other arm once the pipeline is stable.",
+              },
+              {
+                q: "Do you work outside West Bengal?",
+                a: "Yes. Campaigns and automations run nationally. In-person workshops can be arranged in Kolkata, Siliguri, and other cities by appointment.",
+              },
+            ].map((item) => (
+              <Reveal key={item.q}>
+                <div className="plaque-card p-6">
+                  <dt className="font-heading text-xl font-semibold">{item.q}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.a}</dd>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </section>
     </>

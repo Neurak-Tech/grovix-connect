@@ -1,38 +1,35 @@
 # Grovix Connect
 
-Pull off this  in one shot,
+Public website for **GROVIX VENTURES PRIVATE LIMITED** — the holding company behind Lead Foundry (performance marketing) and AiHive (AI & business automation).
 
-Address
+Live site: https://neurak-tech.github.io/grovix-connect/
 
-GROVIX VENTURES PRIVATE LIMITED
+## Company
 
-32, Chowringhee Road, Park Street,
+- **Legal name:** GROVIX VENTURES PRIVATE LIMITED  
+- **Office:** 32, Chowringhee Road, Park Street, Kolkata, West Bengal – 700071, India  
+- **Email:** info@grovix.co.in  
 
-Kolkata, West Bengal – 700071, India.
-
-Email
-
-Info@grovix.co.in
-
-Privacy policy and Terms & Conditions page is a must, you can frame content
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/8404332c-194f-438a-a19a-c40fe1c37b57).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Privacy Policy and Terms & Conditions live at `/privacy` and `/terms`.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need Node.js 22+ (or a current LTS) and npm.
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
+cd grovix-connect
 npm i
 npm run dev
 ```
+
+Set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, and (for server functions) `SUPABASE_SERVICE_ROLE_KEY` in the environment before submitting the enquiry form.
+
+## Scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Local development server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | ESLint |

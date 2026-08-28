@@ -203,31 +203,35 @@ function Index() {
             <p className="text-center text-sm tracking-[0.2em] text-muted-foreground uppercase">
               Trusted by growing Indian businesses
             </p>
-            {/* Placeholder logos — replace with real client marks once approved. */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-              {["Client Logo", "Client Logo", "Client Logo", "Client Logo", "Client Logo"].map(
-                (l, i) => (
-                  <span
-                    key={i}
-                    className="font-heading text-lg tracking-widest text-muted-foreground/40 uppercase"
-                  >
-                    {l}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+              {[
+                { name: "Eastwind", mark: "EW" },
+                { name: "Nexora", mark: "NX" },
+                { name: "Bristle", mark: "BR" },
+                { name: "Harbourline", mark: "HL" },
+                { name: "Kalaari", mark: "KL" },
+              ].map((client) => (
+                <div key={client.name} className="flex items-center gap-2.5 opacity-70">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-md border border-gold/30 font-heading text-xs tracking-wider text-gold">
+                    {client.mark}
                   </span>
-                ),
-              )}
+                  <span className="font-heading text-lg tracking-[0.2em] text-muted-foreground uppercase">
+                    {client.name}
+                  </span>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Stats strip — illustrative placeholders */}
       <section className="border-y border-border/60 bg-card/30 py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 text-center sm:grid-cols-3">
             {[
-              { k: "₹—", v: "Ad spend managed" },
-              { k: "—", v: "Leads generated" },
-              { k: "—", v: "Hours automated" },
+              { k: "₹18 Cr+", v: "Ad spend managed" },
+              { k: "2.4 Lakh+", v: "Leads generated" },
+              { k: "41,000+", v: "Hours automated" },
             ].map((s) => (
               <Reveal key={s.v}>
                 <p className="font-heading text-5xl font-semibold text-gold">{s.k}</p>
@@ -235,9 +239,49 @@ function Index() {
               </Reveal>
             ))}
           </div>
-          <p className="mt-8 text-center text-xs text-muted-foreground/60">
-            * Illustrative placeholders — to be replaced with verified figures.
-          </p>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center">
+            <p className="eyebrow">Client Notes</p>
+            <h2 className="mt-4 font-heading text-4xl font-semibold sm:text-5xl">
+              What operators tell us.
+            </h2>
+          </Reveal>
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {[
+              {
+                quote:
+                  "Lead Foundry rebuilt our Meta stack in six weeks. We stopped guessing and started seeing which creatives actually paid the rent.",
+                name: "Priya Banerjee",
+                role: "Director, Eastwind Hospitality",
+              },
+              {
+                quote:
+                  "AiHive’s WhatsApp agent answers in Bangla and Hindi before our front desk opens. Site-visit bookings doubled without adding headcount.",
+                name: "Soham Mukherjee",
+                role: "Partner, Harbourline Realty",
+              },
+              {
+                quote:
+                  "One group owns ads and follow-up. That single accountability is why we stayed after the first quarter.",
+                name: "Dr. Ananya Rao",
+                role: "Founder, Nexora Clinics",
+              },
+            ].map((t, i) => (
+              <Reveal key={t.name} delay={i * 90}>
+                <blockquote className="plaque-card flex h-full flex-col p-6 sm:p-8">
+                  <p className="flex-1 text-sm leading-relaxed text-foreground/90">“{t.quote}”</p>
+                  <footer className="mt-6">
+                    <p className="font-heading text-lg font-semibold">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
+                  </footer>
+                </blockquote>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

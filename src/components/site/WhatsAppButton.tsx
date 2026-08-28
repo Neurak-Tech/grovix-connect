@@ -1,8 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 
-// Site-wide WhatsApp click-to-chat button. Replace SITE.whatsappNumber in
-// src/lib/site.ts with the real business number before launch.
 export function WhatsAppButton() {
   const href = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(
     "Hi Grovix Ventures, I'd like to know more about your services.",
