@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AihiveRouteImport } from './routes/aihive'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as LeadFoundryRouteImport } from './routes/lead-foundry'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AihiveRoute = AihiveRouteImport.update({
+  id: '/aihive',
+  path: '/aihive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadFoundryRoute = LeadFoundryRouteImport.update({
+  id: '/lead-foundry',
+  path: '/lead-foundry',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/aihive': typeof AihiveRoute
+  '/contact': typeof ContactRoute
+  '/lead-foundry': typeof LeadFoundryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/aihive': typeof AihiveRoute
+  '/contact': typeof ContactRoute
+  '/lead-foundry': typeof LeadFoundryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/aihive': typeof AihiveRoute
+  '/contact': typeof ContactRoute
+  '/lead-foundry': typeof LeadFoundryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about' | '/aihive' | '/contact' | '/lead-foundry'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/aihive' | '/contact' | '/lead-foundry'
+  id: '__root__' | '/' | '/about' | '/aihive' | '/contact' | '/lead-foundry'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AihiveRoute: typeof AihiveRoute
+  ContactRoute: typeof ContactRoute
+  LeadFoundryRoute: typeof LeadFoundryRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aihive': {
+      id: '/aihive'
+      path: '/aihive'
+      fullPath: '/aihive'
+      preLoaderRoute: typeof AihiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lead-foundry': {
+      id: '/lead-foundry'
+      path: '/lead-foundry'
+      fullPath: '/lead-foundry'
+      preLoaderRoute: typeof LeadFoundryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AihiveRoute: AihiveRoute,
+  ContactRoute: ContactRoute,
+  LeadFoundryRoute: LeadFoundryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
